@@ -77,7 +77,7 @@ func (c *logClient) ConsumeStream(ctx context.Context, in *ConsumeRequest, opts 
 }
 
 type Log_ConsumeStreamClient interface {
-	Recv() (*ConsumeResposne, error)
+	Recv() (*ConsumeResponse, error)
 	grpc.ClientStream
 }
 
@@ -85,8 +85,8 @@ type logConsumeStreamClient struct {
 	grpc.ClientStream
 }
 
-func (x *logConsumeStreamClient) Recv() (*ConsumeResposne, error) {
-	m := new(ConsumeResposne)
+func (x *logConsumeStreamClient) Recv() (*ConsumeResponse, error) {
+	m := new(ConsumeResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -210,7 +210,7 @@ func _Log_ConsumeStream_Handler(srv interface{}, stream grpc.ServerStream) error
 }
 
 type Log_ConsumeStreamServer interface {
-	Send(*ConsumeResposne) error
+	Send(*ConsumeResponse) error
 	grpc.ServerStream
 }
 
@@ -218,7 +218,7 @@ type logConsumeStreamServer struct {
 	grpc.ServerStream
 }
 
-func (x *logConsumeStreamServer) Send(m *ConsumeResposne) error {
+func (x *logConsumeStreamServer) Send(m *ConsumeResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
