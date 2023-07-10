@@ -39,4 +39,4 @@ type Record struct {
 
 // END:types
 
-var ErrOffsetNotFound = fmt.Errorf("Offset not found.")
+var ErrOffsetNotFound = fmt.Errorf("offset not found")
