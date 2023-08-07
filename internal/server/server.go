@@ -11,8 +11,6 @@ type Config struct {
 	CommitLog CommitLog
 }
 
-//var _ api.LogServer = (*grpc.Server)(nil)
-
 type grpcServer struct {
 	api.UnimplementedLogServer
 	*Config
